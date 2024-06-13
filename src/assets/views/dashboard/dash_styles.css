@@ -1,0 +1,78 @@
+@font-face {
+    font-family: "Tommy-Bold";
+    src: url("MADE Tommy Soft Bold.otf");
+}
+
+@font-face {
+    font-family: "Tommy-EBold";
+    src: url("MADE Tommy Soft ExtraBold.otf");
+}
+
+@font-face {
+    font-family: "Tommy-Light";
+    src: url("MADE Tommy Soft Light.otf");
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    text-wrap: wrap;
+    box-sizing: border-box;
+    font-family: Tommy-Light;
+    color: rgba(255, 255, 255, .7);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+}
+
+main{
+    display: grid;
+    grid-template-columns: 300px auto;
+    grid-template-rows: 150px 50px auto;
+    width: 100%;
+    height: 100%;
+    background-color: #121111;
+}
+
+head{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    /* background-color: red; */
+}
+
+nav{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    /* background-color: blue; */
+    box-shadow: 12px 0px 20px -14px black;
+}
+
+#content{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    /* background-color: yellow; */
+}
+
+#empresa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    /* background-color: yellow; */
+}

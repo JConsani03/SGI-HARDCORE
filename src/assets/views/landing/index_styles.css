@@ -1,0 +1,346 @@
+@font-face {
+    font-family: "Tommy-Bold";
+    src: url("MADE Tommy Soft Bold.otf");
+}
+
+@font-face {
+    font-family: "Tommy-EBold";
+    src: url("MADE Tommy Soft ExtraBold.otf");
+}
+
+@font-face {
+    font-family: "Tommy-Light";
+    src: url("MADE Tommy Soft Light.otf");
+}
+
+* {
+    /* transition: .2s ease; */
+    user-select: none;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: Tommy-Light;
+    color: rgba(255, 255, 255, .7);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+/* SECCIÓN PRESENTACIÓN */
+#presentacion {
+    background-color: #121111;
+    /* background-color: #1f1e1e; */
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('WALLPAPER 3.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+#fondo {
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.637);
+}
+
+#contenido {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    border-radius: 25px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: space-between;
+    width: 1200px;
+    max-width: 1200px;
+    background-color: #121111;
+    height: 72px;
+    /* border-bottom:  1px rgb(0, 0, 0); */
+    box-shadow: 0px 15px 15px -10px rgba(0, 0, 0, 0.894);
+    /* background-color: #24346b; */
+}
+
+nav {
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    width: 400px;
+}
+
+nav button {
+    border-radius: 0px 25px 25px 0px;
+    font-size: max(1.6rem,16px);
+    user-select: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 120px;
+    height: 72px;
+    transition: .2s ease-in;
+
+    &:hover {
+        /* box-shadow: 0px 1.5px 8px 0px rgba(0, 0, 0, 0.894); */
+        color: rgb(206, 113, 26);
+        background-color: #0000005f;
+    }
+}
+
+#info1 {
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, .7);
+    margin-top: 120px;
+    margin-bottom: 64px;
+    text-wrap: wrap;
+    font-family: Tommy-Bold;
+    color: rgb(206, 113, 26);
+    font-size: max(6.4rem, 30px);
+    text-align: center;
+    width: 108.0rem;
+}
+
+#info2 {
+    line-height: 1.5;
+    width: 89.0rem;
+    text-align: center;
+    text-wrap: wrap;
+    font-size: max(2.3rem, 16px);
+    color: rgba(255, 255, 255, .9);
+}
+
+#button_pedir {
+    position: relative;
+    margin-top: 64px;
+    border: none;
+    background-color: rgba(206, 113, 26, 0.795);
+    color: #121111;
+    font-family: Tommy-EBold;
+    font-size: max(6.4rem,30px);
+    border-radius: 30px;
+    padding: 15px;
+    cursor: pointer;
+    transition: .2s ease-in;
+    animation-name: desresaltar;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    bottom: 0px;
+
+    &:hover {
+        box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.7);
+        background-color: rgb(206, 113, 26);
+    }
+}
+
+#prueba {
+    font-size: max(1.6rem,16px);
+    margin-bottom: 20px;
+    animation-name: rebote;
+    animation-duration: 2s;
+    position: relative;
+    animation-iteration-count: infinite;
+}
+/* SECCIÓN PRESENTACIÓN */
+
+/* SECCIÓN MENÚ */
+#menu {
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(206, 113, 26);
+}
+
+#title_menu {
+    font-family: Tommy-EBold;
+    text-shadow: 0px 0px 4px rgba(0, 0, 0, .7);
+    margin-top: 80px;
+    font-family: Tommy-Bold;
+    color: rgba(255, 255, 255, .9);
+    margin-bottom: 64px;
+    font-size: max(6.4rem,16px);
+    text-align: center;
+    width: 100%;
+}
+
+#productos {
+    transition: 0s;
+    margin-bottom: 80px;
+    justify-content: center;
+    align-content: start;
+    gap: 60px;
+    flex-wrap: wrap;
+    width: 1250px;
+}
+
+.ficha {
+    padding: 10px;
+    flex-direction: column;
+    position: relative;
+    /* box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.7); */
+    border-radius: 25%;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    /* background-color: rgba(2, 2, 2, 0.426); */
+
+    &:hover {
+        /* background-color: rgba(224, 125, 32, 0.912);
+        ; */
+        cursor: pointer;
+        animation-name: resaltar;
+        animation-duration: .5s;
+        animation-iteration-count: 1;
+        bottom: 10px;
+    }
+
+    &:not(:hover) {
+        animation-name: desresaltar;
+        animation-duration: .5s;
+        animation-iteration-count: 1;
+        bottom: 0px;
+    }
+
+    img {
+        margin-bottom: 5px;
+        filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, .7));
+        width: 100%;
+        height: 100%;
+    }
+
+    h1 {
+        font-family: Tommy-Bold;
+        font-size: max(1.6rem,16px);
+    }
+}
+/* SECCIÓN MENÚ */
+
+/* SECCIÓN FOOTER */
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: #221f1f;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    p{
+        font-size: max(1.6rem, 16px);
+        text-wrap: wrap;
+        text-align: center;
+    }
+}
+/* /SECCIÓN FOOTER */
+
+/* OTROS */
+.flex {
+    display: flex;
+}
+/* OTROS */
+
+@media (max-width: 1400px) {
+    html{
+        font-size: 50%;
+    }
+    header {
+        width: 90%;
+    }
+    #productos {
+        width: 900px;
+    }
+}
+
+@media (max-width: 1080px) {
+    #productos {
+        width: 90%;
+    }
+    html{
+        font-size: 45%;
+    }
+}
+
+@media (max-width: 800px) {
+    html{
+        font-size: 35%;
+    }
+}
+
+@media (max-width: 680px) {
+    html{
+        font-size: 30%;
+    }
+    #info1, footer p{
+        width: 80%;
+    }
+    #info2 {
+        width: 75%;
+    }
+}
+
+@media (max-height: 820px) {
+    #info1{
+        margin-top: 64px;
+    }
+}
+
+@media (max-height: 750px) {
+    #info1{
+        margin-bottom: 32px;
+    }
+    #button_pedir{
+        margin-top: 32px;
+    }
+}
+
+@media (max-height: 700px) {
+    #presentacion{
+        height: max-content;
+    }
+    #prueba{
+        margin-top: 24px;
+    }
+}
+
+@keyframes rebote {
+    0% {
+        top: 0px;
+    }
+
+    50% {
+        top: 10px;
+    }
+
+    100% {
+        top: 0px;
+    }
+}
+
+@keyframes resaltar {
+    0% {
+        bottom: 0px;
+    }
+
+    100% {
+        bottom: 10px;
+    }
+}
+
+@keyframes desresaltar {
+    0% {
+        bottom: 10px;
+    }
+
+    100% {
+        bottom: 0px;
+    }
+}
