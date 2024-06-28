@@ -1,0 +1,39 @@
+import sqlite from 'better-sqlite3';
+
+const db = new sqlite('../server/database.db');
+
+db.prepare('CREATE TABLE IF NOT EXISTS Imagenes' +
+    '(id INTEGER PRIMARY KEY AUTOINCREMENT, data BLOB)').run();
+
+function comprobarAdmin(adminID) {
+    let json = db.prepare(`SELECT * FROM Usuarios WHERE id = ? AND type = 1`).get(adminID);
+    return (json != null);
+}
+
+export default class $$Imagenes {
+
+    static create(adminID, buff) {
+        console.log('-------------SERVER-------------');
+        console.log(adminID);
+        console.log(buff);
+        let buffer = Buffer.from(buff)
+        console.log(buffer);
+        if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
+        let res = db.prepare(`INSERT INTO Imagenes (data) VALUES(?)`).run(buffer);
+        console.log('-------------FIN/SERVER-------------');
+        return { 'id': res.lastInsertRowid };
+    }
+
+    static read(id) {
+        let res = db.prepare(`SELECT * FROM Imagenes WHERE id = ?`).get(id);
+        return res.data;
+    }
+
+    static delete(adminID, id) {
+        if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
+        let res = db.prepare(`DELETE FROM Imagenes WHERE id = ?`).run(id);
+        return res;
+    }
+
+
+}

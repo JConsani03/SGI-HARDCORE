@@ -1,22 +1,40 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="dash_script.js" async></script>
+    <meta name="description" content="Dashboard del SGI.">
+    <meta name="keywords" content="Ventas, Compras, Producto, Insumos, Nómina, Usuarios, Proveedores">
+    <meta name="author" content="T.S.U. Andrés García">
+
     <link rel="stylesheet" href="dash_styles.css">
+    <script src="dash_script.js" defer></script>
+
     <title>Dashboard</title>
 </head>
+
 <body>
     <main>
-        <header></header>
+        <header><h1 id="modulo"></h1></header>
+        <div id="fondo_izq"></div>
         <nav>
-            
+            <div id="opciones">
+                <button id="vender" name="modulo">VENDER</button>
+                <button id="pedir" name="modulo">PEDIR</button>
+                <button id="productos" name="modulo">PRODUCTOS</button>
+                <button id="insumos" name="modulo">INSUMOS</button>
+                <button id="proveedores" name="modulo">PROVEEDORES</button>
+                <button id="usuarios" name="modulo">USUARIOS</button>
+                <button id="nomina" name="modulo">NÓMINA</button>
+            </div>
+            <footer>V-1.0.0</footer>
         </nav>
         <div id="content"></div>
         <div id="empresa">
-            <img src="logo.png" alt="Logo" title="Hardcore" width="84" height="84">
+            <img src="logo.png" alt="Logo" title="Hardcore" width="100" height="100">
         </div>
     </main>
 </body>
+
 </html>

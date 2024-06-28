@@ -74,7 +74,7 @@ body {
         }
 
         p {
-            font-size: max(2.0rem, 16px);
+            font-size: max(1.8rem, 16px);
             text-align: center;
         }
     }
@@ -101,7 +101,7 @@ body {
             }
 
             input {
-                font-size: max(2.0rem, 16px);
+                font-size: max(1.8rem, 16px);
                 transition: .2s ease;
                 border-radius: 5px;
                 outline: none;
@@ -117,16 +117,16 @@ body {
                 }
 
                 &::placeholder {
-                    color: rgba(239, 239, 239, 0.493);
+                    color: rgba(194, 194, 194, 0.493);
                 }
             }
 
             #b_olv_pass {
                 cursor: pointer;
-                font-size: max(2.0rem, 16px);
+                font-size: max(1.8rem, 16px);
                 align-self: flex-start;
                 border: none;
-                color: rgb(239, 239, 239);
+                color: rgba(168, 168, 168, 0.711);
                 background: none;
             }
         }
@@ -135,10 +135,11 @@ body {
             position: relative;
             transition: .2s ease;
             cursor: pointer;
+            font-family: Tommy-Bold;
             box-sizing: content-box;
             border-radius: 14px;
             background-color: rgba(206, 113, 26, 0.795);
-            font-size: max(2.0rem, 16px);
+            font-size: max(1.8rem, 16px);
             align-self: flex-end;
             width: 120px;
             height: 54px;

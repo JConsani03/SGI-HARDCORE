@@ -1,0 +1,57 @@
+<link rel="stylesheet" href="productos.css">
+
+<div id="fondo">
+    <div id="izq">
+
+        <input class="inputC" id="busqueda" type="text" placeholder="Ej. Laptop">
+
+        <table>
+            <thead>
+                <tr>
+                    <th style='width: 5%'>#</th>
+                    <th style='width: 30%'>Nombre</th>
+                    <th style='width: 35%'>Descripción</th>
+                    <th style='width: 15%'>Stock</th>
+                    <th style='width: 15%'>Precio c/u</th>
+                </tr>
+            </thead>
+            <tbody id="table_content">
+            </tbody>
+        </table>
+
+    </div>
+
+    <div id="derch">
+        <h1 id="title">Producto</h1>
+        <div id="info">
+
+            <div id="figDatos">
+                <img id="img" width="200" height="200">
+
+                <div id="datos">
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <input class="inputC" id="nombre" type="text" placeholder="Nombre del Producto">
+                        <input class="inputC" id="stock" type="number" placeholder="Stock">
+                        <input class="inputC" id="precio" type="number" placeholder="Precio">
+                    </div>
+                    <input id="fileInput" type="file">
+                </div>
+            </div>
+
+            <i>ID</i>
+        </div>
+
+
+        <textarea class="inputC" id="descrip" placeholder="Descripción..."></textarea>
+        <div id="opcionesCRUD">
+            <div style="display: flex; gap: 12px;">
+                <button id="b_nuevo" class="crudButtons">NUEVO</button>
+                <button id="b_editar" class="crudButtons">APLICAR CAMBIOS</button>
+            </div>
+
+            <button id="b_eliminar" class="crudButtons"></button>
+        </div>
+
+    </div>
+</div>
+</div>
