@@ -122,6 +122,14 @@ server.post('/createImagen/:adminID', function (req, res) {
     }
 });
 
+server.get('/updateImagen/:adminID/:idProducto/:id', function (req, res) {
+    try {
+        res.status(200).send($$Imagenes.update(req.params.adminID, req.params.idProducto, req.params.id));
+    } catch (error) {
+        res.status(400).send({ 'message': error.message });
+    }
+});
+
 server.get('/readImagen/:id', function (req, res) {
     try {
         res.status(200).send($$Imagenes.read(req.params.id));

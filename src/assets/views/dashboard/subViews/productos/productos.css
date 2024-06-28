@@ -88,6 +88,7 @@ table {
     }
 
     tbody {
+        margin-top: 8px;
         display: flex;
         flex-direction: column;
         
@@ -152,6 +153,8 @@ i {
 }
 
 #opcionesCRUD {
+    border-top: 1px solid white;
+    padding-top: 12px;
     display: flex;
     /* flex-direction: row; */
     /* gap: 10px; */
@@ -188,9 +191,15 @@ i {
 #b_nuevo {
     background-color: rgba(14, 126, 14, 0.776);
     width: max(12rem, 60px);
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgba(17, 157, 17, 0.776);
+    }
 }
 
 #b_editar {
+    font-size: max(1.4rem, 14px);
     background: none;
     height: 26px;
     align-self: flex-end;

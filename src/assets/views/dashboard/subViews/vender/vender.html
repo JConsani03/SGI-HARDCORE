@@ -1,3 +1,41 @@
-<div style="width: 100%; height: 100%; background-color: brown;">
-    <h1>hola</h1>
+<link rel="stylesheet" href="vender.css">
+
+<div id="fondo">
+    <div id="izq">
+
+        <table>
+            <thead>
+                <tr>
+                    <th style='width: 5%'>#</th>
+                    <th style='width: 30%'>Nombre</th>
+                    <th style='width: 15%'>Cantidad</th>
+                    <th style='width: 25%'>Precio c/u</th>
+                    <th style='width: 25%'>Precio Total</th>
+                </tr>
+            </thead>
+            <tbody id="table_content">
+            </tbody>
+        </table>
+
+        <div id="precio">
+            <p id="total">Total:</p>
+            <p id="dinero">0$</p>
+        </div>
+
+        <div id="opcionesCRUD">
+            <div style="display: flex; gap: 16px;">
+                <button id="b_nuevo" class="crudButtons">REALIZAR COMPRA</button>
+            </div>
+
+            <button title="Eliminar fila seleccionada" id="b_eliminar" class="crudButtons"></button>
+        </div>
+
+    </div>
+
+    <div id="derch">
+        <input class="inputC" id="busqueda" type="text" placeholder="Ej. Laptop">
+        <div id="panel_productos">
+        </div>
+    </div>
+</div>
 </div>

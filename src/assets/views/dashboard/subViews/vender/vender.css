@@ -1,0 +1,222 @@
+.inputC {
+    font-size: max(1.6rem, 16px);
+    transition: .2s ease;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(206, 113, 26, 0.377);
+    color: rgb(239, 239, 239);
+    height: 30px;
+    /* width: 100%; */
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+
+    &:focus {
+        background-color: rgba(255, 0, 0, 0.342);
+    }
+
+    &::placeholder {
+        color: rgba(194, 194, 194, 0.493);
+    }
+
+}
+
+#fondo {
+    display: flex;
+    padding: 24px;
+    width: 100%;
+    height: 100%;
+    background-color: #202020;
+}
+
+#izq {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    margin-right: 8px;
+}
+
+table {
+    display: flex;
+    flex-direction: column;
+    font-size: max(1.6rem, 16px);
+    width: 100%;
+    height: 450px;
+    overflow-y: scroll;
+
+    tr{
+        display: flex;
+        width: 100%;
+    }
+
+    th {
+        border: 1px solid white;
+        display: block;
+        font-family: Tommy-Bold;
+        width: calc(100%/5);
+        user-select: none;
+    }
+
+    td{
+        text-align: center;
+        display: block;
+        width: calc(100%/5);
+        height: 26px;
+        user-select: none;
+        word-wrap: break-word;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+
+    thead{
+        display: flex;
+        width: 100%;
+    }
+
+    tbody {
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        
+        height: 100%;
+        width: 100%;
+    }
+
+}
+
+#precio{
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+#dinero{
+    font-size: max(1.9rem,19px);
+    color: rgb(207, 107, 25);
+}
+
+#total{
+    font-family: Tommy-EBold;
+    font-size: max(2.2rem,22px);
+    color: rgb(13, 163, 13);
+}
+
+#opcionesCRUD {
+    margin-top: 12px;
+    border-top: 1px solid white;
+    padding-top: 12px;
+    display: flex;
+    /* flex-direction: row; */
+    /* gap: 10px; */
+    justify-content: space-between;
+
+}
+
+.crudButtons {
+    /* position: relative; */
+    transition: .2s ease;
+    cursor: pointer;
+    font-family: Tommy-Bold;
+    /* box-sizing: content-box; */
+    border-radius: 6px;
+    /* background-color: rgba(206, 113, 26, 0.795); */
+    font-size: max(1.6rem, 16px);
+    /* align-self: flex-end; */
+    /* width: 120px; */
+    height: 46px;
+    color: rgb(239, 239, 239);
+    border: none;
+}
+
+#b_nuevo {
+    background-color: rgba(14, 126, 14, 0.776);
+    width: max(12rem, 60px);
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgba(17, 157, 17, 0.776);
+    }
+}
+
+#b_editar {
+    font-size: max(1.4rem, 14px);
+    background: none;
+    height: 26px;
+    align-self: flex-end;
+    color: rgb(182, 188, 192);
+
+    &:hover {
+        transform: scale(1.05);
+        color: rgb(230, 233, 235);
+    }
+
+    &:disabled {
+        cursor: no-drop;
+    }
+
+}
+
+.ficha{
+    border-radius: 10px;
+    /* border: 1px solid white; */
+    background-color: #202020;
+    cursor: pointer;
+    transition: .2s;
+
+    &:hover{
+        transform: scale(1.11);
+        background-color: #4a4a4a;
+    }
+}
+
+#b_eliminar {
+    background-color: transparent;
+    background-image: url('papelera.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 46px;
+
+    &:hover {
+        background-image: url('papelera-roja.png');
+        transform: scale(1.2);
+    }
+
+    &:disabled {
+        cursor: no-drop;
+    }
+
+}
+
+/* PANEL DERECHO */
+
+#derch {
+    border-left: 1px inset white;
+    padding-left: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+
+#busqueda {
+    /* margin-top: 12px; */
+    margin-bottom: 12px;
+    align-self: center;
+    width: 100%;
+    height: 32px;
+}
+
+#panel_productos{
+    padding: 18px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+}
+

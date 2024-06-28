@@ -1,0 +1,222 @@
+.inputC {
+    font-size: max(1.6rem, 16px);
+    transition: .2s ease;
+    border-radius: 5px;
+    outline: none;
+    background-color: rgba(206, 113, 26, 0.377);
+    color: rgb(239, 239, 239);
+    height: 30px;
+    /* width: 100%; */
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+
+    &:focus {
+        background-color: rgba(255, 0, 0, 0.342);
+    }
+
+    &::placeholder {
+        color: rgba(194, 194, 194, 0.493);
+    }
+
+
+
+}
+
+#fondo {
+    display: flex;
+    padding: 24px;
+    width: 100%;
+    height: 100%;
+    background-color: #202020;
+}
+
+#izq {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+    margin-right: 8px;
+}
+
+#busqueda {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    align-self: center;
+    width: 100%;
+    height: 32px;
+}
+
+table {
+    display: flex;
+    flex-direction: column;
+    font-size: max(1.6rem, 16px);
+    width: 100%;
+    height: 650px;
+    overflow-y: scroll;
+
+    tr{
+        display: flex;
+        width: 100%;
+    }
+
+    th {
+        border: 1px solid white;
+        display: block;
+        font-family: Tommy-Bold;
+        width: calc(100%/5);
+        user-select: none;
+    }
+
+    td{
+        text-align: center;
+        display: block;
+        width: calc(100%/5);
+        height: 26px;
+        user-select: none;
+        word-wrap: break-word;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar{
+            display: none;
+        }
+    }
+
+    thead{
+        display: flex;
+        width: 100%;
+    }
+
+    tbody {
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        
+        height: 100%;
+        width: 100%;
+    }
+
+}
+
+/* PANEL DERECHO */
+
+#derch {
+    margin-left: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+
+#title {
+    font-family: Tommy-Bold;
+    font-size: max(4rem, 16px);
+}
+
+#info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+#datos {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#admin, #user{
+    cursor: pointer;
+    + label{
+        cursor: pointer;
+        font-size: max(1.6rem,16px);
+    }
+}
+
+#figDatos {
+    display: flex;
+    gap: 8px;
+}
+
+i {
+    font-size: max(1.6rem, 16px);
+}
+
+#descrip {
+    padding-top: 10px;
+    width: 100%;
+    height: 300px;
+    margin-bottom: 12px;
+}
+
+#opcionesCRUD {
+    display: flex;
+    /* flex-direction: row; */
+    /* gap: 10px; */
+    justify-content: space-between;
+    border-top: 1px solid white;
+    padding-top: 12px;
+}
+
+.crudButtons {
+    /* position: relative; */
+    transition: .2s ease;
+    cursor: pointer;
+    font-family: Tommy-Bold;
+    /* box-sizing: content-box; */
+    border-radius: 6px;
+    /* background-color: rgba(206, 113, 26, 0.795); */
+    font-size: max(1.6rem, 16px);
+    /* align-self: flex-end; */
+    /* width: 120px; */
+    height: 46px;
+    color: rgb(239, 239, 239);
+    border: none;
+}
+
+#b_nuevo {
+    background-color: rgba(14, 126, 14, 0.776);
+    width: max(12rem, 60px);
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgba(17, 157, 17, 0.776);
+    }
+}
+
+#b_editar {
+    font-size: max(1.4rem, 14px);
+    background: none;
+    height: 26px;
+    align-self: flex-end;
+    color: rgb(182, 188, 192);
+
+    &:hover {
+        transform: scale(1.05);
+        color: rgb(230, 233, 235);
+    }
+
+    &:disabled {
+        cursor: no-drop;
+    }
+
+}
+
+#b_eliminar {
+    background-color: transparent;
+    background-image: url('papelera.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 46px;
+
+    &:hover {
+        background-image: url('papelera-roja.png');
+        transform: scale(1.2);
+    }
+
+    &:disabled {
+        cursor: no-drop;
+    }
+
+}

@@ -18,7 +18,7 @@
     padding: 0px;
     text-wrap: wrap;
     box-sizing: border-box;
-    transition: .2s;
+    /* transition: .2s; */
     font-family: Tommy-Light;
     color: rgba(255, 255, 255, .7);
 }

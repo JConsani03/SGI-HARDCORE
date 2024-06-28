@@ -14,18 +14,32 @@ function comprobarAdmin(adminID) {
 export default class $$Usuarios {
 
     static create(adminID, user, pass, type) {
+        console.log(user.trim().length, pass.trim().length)
         if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
-        if (user.length < 3) throw new Error('El nombre de usuario debe tener como mínimo 3 caracteres.');
-        if (pass.length < 6) throw new Error('La contraseña debe tener como mínimo 6 caracteres.');
+        if (user.trim().length < 3) throw new Error('El nombre de usuario debe tener como mínimo 3 caracteres.');
+        if (pass.trim().length < 6) throw new Error('La contraseña debe tener como mínimo 6 caracteres.');
 
-        db.prepare(`INSERT INTO Usuarios (usuario, pass, type) VALUES(?, ?, ?)`).run(user, pass, type);
+        try{
+            db.prepare(`INSERT INTO Usuarios (usuario, pass, type) VALUES(?, ?, ?)`).run(user.trim(), pass, type);
+        } catch (err){
+            let cadena = err.message.split(' ');
+            console.log(cadena);
+            if(cadena[0] == 'UNIQUE') throw new Error('Este usuario ya existe.');
+        }
+        
 
         return { 'message': 'OK' };
     }
 
     static read(adminID, user) {
+        let res
         if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
-        let res = db.prepare(`SELECT * FROM Usuarios WHERE usuario LIKE ?`).all(`${user}%`);
+        if(user == -1){
+            res = db.prepare(`SELECT * FROM Usuarios`).all();
+        } else {
+            res = db.prepare(`SELECT * FROM Usuarios WHERE usuario LIKE ?`).all(`%${user}%`);
+        }
+        
         return res;
     }
 
@@ -40,8 +54,8 @@ export default class $$Usuarios {
 
     static delete(adminID, userID) {
         if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
-        let res = db.prepare(`DELETE FROM Usuarios WHERE id = ?`).run(userID);
-        return res;
+        db.prepare(`DELETE FROM Usuarios WHERE id = ?`).run(userID);
+        return { 'message': 'OK' };
 
     }
 
