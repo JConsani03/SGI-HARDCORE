@@ -8,7 +8,7 @@ import url from 'url';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// import $$Usuarios from '../models/Usuarios.js';
+import $$Usuarios from '../models/Usuarios.js';
 // import $$Ventas from '../models/Ventas.js';
 // import $$Productos from '../models/Productos.js';
 // import $$VentasProductos from '../models/Ventas-Productos.js';
