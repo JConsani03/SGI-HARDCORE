@@ -4,7 +4,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import path from 'path';
 // import sqlite from 'better-sqlite3';
-console.log(import.meta.filename);
+console.log(import.meta);
 // const db = new sqlite('./database.db');
 // import $$Usuarios from '../models/Usuarios.js';
 // import $$Ventas from '../models/Ventas.js';
