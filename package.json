@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/server/index.js"
+    "start": "npm install better-sqlite3 && node ./src/server/index.js"
   },
   "type": "module",
   "author": "Andrés",
