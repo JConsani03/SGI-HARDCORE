@@ -2,7 +2,7 @@ import express from 'express';
 const server = express();
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import path from 'path';
+// import path from 'path';
 // import sqlite from 'better-sqlite3';
 
 // const db = new sqlite('./database.db');
@@ -16,7 +16,7 @@ server.use(bodyParser.raw({ type: 'application/octet-stream', limit: '500mb' }))
 server.use(express.json({ limit: '500mb' }));
 server.use(cors());
 server.use(express.urlencoded({ extended: true }));
-console.log(path.join(import.meta.dirname));
+// console.log(path.join(import.meta.dirname));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'fonts')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'landing')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'login')));
