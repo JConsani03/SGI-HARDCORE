@@ -4,18 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "preinstall": "rm -rf node_modules",
-    "install": "npm install better-sqlite3 body-parser cors express",
-    "postinstall": "npm rebuild better-sqlite3 body-parser cors express",
     "start": "node ./src/server/index.js"
   },
   "type": "module",
   "author": "Andrés",
-  "license": "ISC",
-  "dependencies": {
-    "better-sqlite3": "^11.0.0",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
-    "express": "^4.19.2"
-  }
+  "license": "ISC"
 }
