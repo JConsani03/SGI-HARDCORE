@@ -18,9 +18,9 @@ server.use(bodyParser.raw({ type: 'application/octet-stream', limit: '500mb' }))
 server.use(express.json({ limit: '500mb' }));
 server.use(cors());
 server.use(express.urlencoded({ extended: true }));
-// console.log(path.join(import.meta.dirname));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'fonts')));
-server.use(express.static(path.join(__dirname,'..', 'assets', 'views', 'landing')));
+
+server.use(express.static(path.join(__dirname, '..', 'assets', 'fonts')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'landing')));
 server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'login')));
 server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard')));
 server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'insumos')));
@@ -32,14 +32,14 @@ server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboa
 server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'vender')));
 server.use(express.static(path.join(__dirname, '..', 'assets', 'img')));
 
-// USUARIO
-server.get('/', function (req, res) {
-    try {
-        res.status(200).send(fs.readFileSync(path.join('app','src', 'assets', 'views', 'landing', 'index.html')));
-    } catch (error) {
-        res.status(400).send({ 'message': error.message });
-    }
-});
+// // USUARIO
+// server.get('/loginUser/:user/:pass', function (req, res) {
+//     try {
+//         res.status(200).send($$Usuarios.login(req.params.user, req.params.pass));
+//     } catch (error) {
+//         res.status(400).send({ 'message': error.message });
+//     }
+// });
 
 // server.get('/createUsuario/:adminID/:user/:pass/:type', function (req, res) {
 //     try {
@@ -194,15 +194,15 @@ server.get('/', function (req, res) {
 // });
 // // FIN - VENTAS
 
-// server.get('/landing', function (req, res) {
-//     res.status(200).sendFile(path.join(import.meta.dirname, '..', 'assets', 'views', 'landing', 'index.html'));
-// });
-// server.get('/login', function (req, res) {
-//     res.status(200).sendFile(path.join(import.meta.dirname, '..', 'assets', 'views', 'login', 'login.html'))
-// });
-// server.get('/home', function (req, res) {
-//     res.status(200).sendFile(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'dashboard.html'))
-// });
+server.get('/landing', function (req, res) {
+    res.status(200).sendFile(path.join(__dirname, '..', 'assets', 'views', 'landing', 'index.html'));
+});
+server.get('/login', function (req, res) {
+    res.status(200).sendFile(path.join(__dirname, '..', 'assets', 'views', 'login', 'login.html'))
+});
+server.get('/home', function (req, res) {
+    res.status(200).sendFile(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'dashboard.html'))
+});
 
 server.use(function (req, res) {
     res.status(404).send('Recurso no encontrado.');
