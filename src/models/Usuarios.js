@@ -1,6 +1,6 @@
 import sqlite from 'better-sqlite3';
 
-const db = new sqlite('../server/database.db');
+const db = new sqlite('./src/server/DataBase.db');
 
 db.prepare(
     'CREATE TABLE IF NOT EXISTS Usuarios' +

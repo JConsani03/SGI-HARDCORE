@@ -1,6 +1,6 @@
 import sqlite from 'better-sqlite3';
 
-const db = new sqlite('../server/database.db');
+const db = new sqlite('./server/database.db');
 
 db.prepare('CREATE TABLE IF NOT EXISTS Ventas' +
     '(id INTEGER PRIMARY KEY AUTOINCREMENT, fecha TEXT, descrip TEXT, precioT INTEGER)').run();
