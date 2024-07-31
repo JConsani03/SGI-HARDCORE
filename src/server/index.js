@@ -8,7 +8,7 @@ import { dirname, resolve } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-console.log(__dirname);
+console.log('sexo:',__filename,__dirname);
 // import $$Usuarios from '../models/Usuarios.js';
 // import $$Ventas from '../models/Ventas.js';
 // import $$Productos from '../models/Productos.js';
