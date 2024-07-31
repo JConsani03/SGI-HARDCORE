@@ -3,13 +3,11 @@ const server = express();
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { dirname, resolve } from 'path';
+import url from 'url';
 
-console.log(import.meta.url);
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-console.log('sexo:',__filename,__dirname);
+const __filename = url.fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // import $$Usuarios from '../models/Usuarios.js';
 // import $$Ventas from '../models/Ventas.js';
 // import $$Productos from '../models/Productos.js';
@@ -23,16 +21,16 @@ server.use(express.urlencoded({ extended: true }));
 // console.log(path.join(import.meta.dirname));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'fonts')));
 server.use(express.static(path.join(__dirname,'..', 'assets', 'views', 'landing')));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'login')));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard')));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'insumos')));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'nomina')));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'pedir')));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'productos')));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'proveedores')));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'usuarios')));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'vender')));
-// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'img')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'login')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'insumos')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'nomina')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'pedir')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'productos')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'proveedores')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'usuarios')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'vender')));
+server.use(express.static(path.join(__dirname, '..', 'assets', 'img')));
 
 // USUARIO
 server.get('/', function (req, res) {
