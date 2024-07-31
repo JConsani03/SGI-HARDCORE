@@ -10,7 +10,7 @@ function crearScript(nombre) {
     $content.appendChild(script);
 }
 
-fetch(`http://localhost:8080/productos.html`)
+fetch(`https://hardcore.up.railway.app/productos.html`)
     .then(res => res.text())
     .then(res => { $content.innerHTML = res; crearScript('productos.js'); });
 
@@ -25,7 +25,7 @@ function setContent(btn) {
         delete window.fragmentNamespace;
     }
 
-    fetch(`http://localhost:8080/${btn.target.id}.html`)
+    fetch(`https://hardcore.up.railway.app/${btn.target.id}.html`)
         .then(res => res.text())
         .then(res => {
             $content.innerHTML = res;
