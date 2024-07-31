@@ -38,47 +38,47 @@ server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboa
 server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'vender')));
 server.use(express.static(path.join(__dirname, '..', 'assets', 'img')));
 
-// // USUARIO
-// server.get('/loginUser/:user/:pass', function (req, res) {
-//     try {
-//         res.status(200).send($$Usuarios.login(req.params.user, req.params.pass));
-//     } catch (error) {
-//         res.status(400).send({ 'message': error.message });
-//     }
-// });
+// USUARIO
+server.get('/loginUser/:user/:pass', function (req, res) {
+    try {
+        res.status(200).send($$Usuarios.login(req.params.user, req.params.pass));
+    } catch (error) {
+        res.status(400).send({ 'message': error.message });
+    }
+});
 
-// server.get('/createUsuario/:adminID/:user/:pass/:type', function (req, res) {
-//     try {
-//         res.status(200).send($$Usuarios.create(req.params.adminID, req.params.user, req.params.pass, req.params.type));
-//     } catch (error) {
-//         res.status(400).send({ 'message': error.message });
-//     }
-// });
+server.get('/createUsuario/:adminID/:user/:pass/:type', function (req, res) {
+    try {
+        res.status(200).send($$Usuarios.create(req.params.adminID, req.params.user, req.params.pass, req.params.type));
+    } catch (error) {
+        res.status(400).send({ 'message': error.message });
+    }
+});
 
-// server.get('/readUsuario/:adminID/:user', function (req, res) {
-//     try {
-//         res.status(200).send($$Usuarios.read(req.params.adminID, req.params.user));
-//     } catch (error) {
-//         res.status(400).send({ 'message': error.message });
-//     }
-// });
+server.get('/readUsuario/:adminID/:user', function (req, res) {
+    try {
+        res.status(200).send($$Usuarios.read(req.params.adminID, req.params.user));
+    } catch (error) {
+        res.status(400).send({ 'message': error.message });
+    }
+});
 
-// server.get('/updateUsuario/:adminID/:userID/:newU/:newP/:newT', function (req, res) {
-//     try {
-//         res.status(200).send($$Usuarios.update(req.params.adminID, req.params.userID, req.params.newU, req.params.newP, req.params.newT));
-//     } catch (error) {
-//         res.status(400).send({ 'message': error.message });
-//     }
-// });
+server.get('/updateUsuario/:adminID/:userID/:newU/:newP/:newT', function (req, res) {
+    try {
+        res.status(200).send($$Usuarios.update(req.params.adminID, req.params.userID, req.params.newU, req.params.newP, req.params.newT));
+    } catch (error) {
+        res.status(400).send({ 'message': error.message });
+    }
+});
 
-// server.get('/deleteUsuario/:adminID/:userID', function (req, res) {
-//     try {
-//         res.status(200).send($$Usuarios.delete(req.params.adminID, req.params.userID));
-//     } catch (error) {
-//         res.status(400).send({ 'message': error.message });
-//     }
-// });
-// // FIN - USUARIO
+server.get('/deleteUsuario/:adminID/:userID', function (req, res) {
+    try {
+        res.status(200).send($$Usuarios.delete(req.params.adminID, req.params.userID));
+    } catch (error) {
+        res.status(400).send({ 'message': error.message });
+    }
+});
+// FIN - USUARIO
 
 // // PRODUCTOS
 // server.get('/createProducto/:adminID/:nombre/:descrip/:stock/:priceU/:idImage', function (req, res) {
