@@ -16,7 +16,7 @@ server.use(cors());
 server.use(express.urlencoded({ extended: true }));
 // console.log(path.join(import.meta.dirname));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'fonts')));
-server.use(express.static(path.join('..', 'assets', 'views', 'landing')));
+server.use(express.static(path.join('app','src', 'assets', 'views', 'landing')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'login')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'insumos')));
