@@ -6,6 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 
+console.log(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 console.log('sexo:',__filename,__dirname);
@@ -21,7 +22,7 @@ server.use(cors());
 server.use(express.urlencoded({ extended: true }));
 // console.log(path.join(import.meta.dirname));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'fonts')));
-// server.use(express.static(path.join('app','src', 'assets', 'views', 'landing')));
+server.use(express.static(path.join(__dirname,'..', 'assets', 'views', 'landing')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'login')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'insumos')));
