@@ -2,9 +2,9 @@ import express from 'express';
 const server = express();
 import cors from 'cors';
 import bodyParser from 'body-parser';
-// import path from 'path';
+import path from 'path';
 // import sqlite from 'better-sqlite3';
-
+console.log(path.dirname);
 // const db = new sqlite('./database.db');
 // import $$Usuarios from '../models/Usuarios.js';
 // import $$Ventas from '../models/Ventas.js';
