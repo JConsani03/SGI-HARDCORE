@@ -15,11 +15,9 @@ function comprobarAdmin(adminID) {
 
 export default class $$Imagenes {
 
-    static create(adminID, buff) {
+    static create(adminID, ArrayBuffer) {
         console.log('-------------SERVER-------------');
-        console.log(adminID);
-        console.log(buff);
-        let buffer = Buffer.from(buff)
+        let buffer = Buffer.from(ArrayBuffer)
         console.log(buffer);
         if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
         let res = db.prepare(`INSERT INTO Imagenes (data) VALUES(?)`).run(buffer);
@@ -37,7 +35,8 @@ export default class $$Imagenes {
     }
 
     static read(id) {
-        let res = db.prepare(`SELECT * FROM Imagenes WHERE id = ?`).get(id);
+        console.log(id);
+        let res = db.prepare(`SELECT * FROM Imagenes WHERE idProducto = ?`).get(id);
         return res.data;
     }
 

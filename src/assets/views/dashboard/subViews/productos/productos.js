@@ -86,6 +86,7 @@ window.fragmentNamespace = function () {
             document.getElementById('b_editar').disabled = false;
             document.getElementById('b_eliminar').disabled = false;
             document.getElementById('fileInput').value = '';
+            console.log(img);
             fetch('http://localhost:8080/createImagen/1', {
                 method: 'post',
                 headers: {
@@ -142,7 +143,7 @@ window.fragmentNamespace = function () {
         fetch(`http://localhost:8080/getProducto/${encodeURIComponent(id)}`)
             .then(res => res.json())
             .then(res => {
-                obtenerImagen(res.idImage);
+                obtenerImagen(res.id);
                 document.getElementById('nombre').value = res.nombre;
                 document.getElementById('stock').value = res.stock;
                 document.getElementById('precio').value = res.priceU;

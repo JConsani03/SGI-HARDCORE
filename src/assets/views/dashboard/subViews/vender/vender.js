@@ -21,23 +21,6 @@ window.fragmentNamespace = function () {
         idProducto = null;
     }
 
-    function fileInputChangeHandler(e) {
-        let file = e.target.files[0];
-        if (file) {
-            let reader = new FileReader();
-            reader.onload = function (event) {
-                img = event.target.result;
-            };
-            reader.readAsArrayBuffer(file);
-
-            let readerURL = new FileReader();
-            readerURL.onload = function (event) {
-                document.getElementById('img').src = event.target.result;
-            };
-            readerURL.readAsDataURL(file);
-        }
-    }
-
     function busquedaInputHandler(e) {
         if (e.target.value == '') {
             llenarFichas(-1);

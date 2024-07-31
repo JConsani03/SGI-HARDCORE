@@ -114,8 +114,6 @@ server.get('/deleteProducto/:adminID/:id', function (req, res) {
 // IMAGENES
 server.post('/createImagen/:adminID', function (req, res) {
     try {
-        console.log(req.params.adminID);
-        console.log(req.body);
         res.status(200).send($$Imagenes.create(req.params.adminID, req.body));
     } catch (error) {
         res.status(400).send({ 'message': error.message });

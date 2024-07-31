@@ -211,6 +211,7 @@ table {
 }
 
 #panel_productos{
+    align-content: flex-start;
     padding: 18px;
     display: flex;
     gap: 16px;
