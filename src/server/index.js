@@ -3,9 +3,9 @@ const server = express();
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import path from 'path';
-import sqlite from 'better-sqlite3';
+// import sqlite from 'better-sqlite3';
 
-const db = new sqlite('./database.db');
+// const db = new sqlite('./database.db');
 // import $$Usuarios from '../models/Usuarios.js';
 // import $$Ventas from '../models/Ventas.js';
 // import $$Productos from '../models/Productos.js';
