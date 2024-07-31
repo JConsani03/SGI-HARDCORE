@@ -6,6 +6,8 @@ db.prepare(
     'CREATE TABLE IF NOT EXISTS Usuarios' +
     '(id INTEGER PRIMARY KEY AUTOINCREMENT, usuario TEXT UNIQUE, pass TEXT, type INTEGER)').run();
 
+db.prepare('INSERT INTO Usuarios (usuario, pass, type) VALUES(?, ?, ?)').run('admin', 'admin', 1)
+
 function comprobarAdmin(adminID) {
     let json = db.prepare(`SELECT * FROM Usuarios WHERE id = ? AND type = 1`).get(adminID);
     return (json != null);
