@@ -4,6 +4,12 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import path from 'path';
 import url from 'url';
+import os from 'os'
+
+const platform = os.platform(); 
+const type = os.type();
+const release = os.release(); 
+console.log({platform, type, release});
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
