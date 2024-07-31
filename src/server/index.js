@@ -16,18 +16,19 @@ server.use(bodyParser.raw({ type: 'application/octet-stream', limit: '500mb' }))
 server.use(express.json({ limit: '500mb' }));
 server.use(cors());
 server.use(express.urlencoded({ extended: true }));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'fonts')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'landing')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'login')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'insumos')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'nomina')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'pedir')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'productos')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'proveedores')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'usuarios')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'vender')));
-server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'img')));
+console.log(path.join(import.meta.dirname));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'fonts')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'landing')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'login')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'insumos')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'nomina')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'pedir')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'productos')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'proveedores')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'usuarios')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'vender')));
+// server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'img')));
 
 // USUARIO
 // server.get('/loginUser/:user/:pass', function (req, res) {
