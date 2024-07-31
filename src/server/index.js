@@ -4,6 +4,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import path from 'path';
 console.log(path.join('app','src', 'assets', 'views', 'landing'));
+import fs from 'fs'
 // import $$Usuarios from '../models/Usuarios.js';
 // import $$Ventas from '../models/Ventas.js';
 // import $$Productos from '../models/Productos.js';
@@ -16,7 +17,7 @@ server.use(cors());
 server.use(express.urlencoded({ extended: true }));
 // console.log(path.join(import.meta.dirname));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'fonts')));
-server.use(express.static(path.join('app','src', 'assets', 'views', 'landing')));
+// server.use(express.static(path.join('app','src', 'assets', 'views', 'landing')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'login')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard')));
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'insumos')));
@@ -29,13 +30,13 @@ server.use(express.static(path.join('app','src', 'assets', 'views', 'landing')))
 // server.use(express.static(path.join(import.meta.dirname, '..', 'assets', 'img')));
 
 // USUARIO
-// server.get('/loginUser/:user/:pass', function (req, res) {
-//     try {
-//         res.status(200).send($$Usuarios.login(req.params.user, req.params.pass));
-//     } catch (error) {
-//         res.status(400).send({ 'message': error.message });
-//     }
-// });
+server.get('/', function (req, res) {
+    try {
+        res.status(200).send(fs.readFileSync(path.join('app','src', 'assets', 'views', 'landing', 'index.html')));
+    } catch (error) {
+        res.status(400).send({ 'message': error.message });
+    }
+});
 
 // server.get('/createUsuario/:adminID/:user/:pass/:type', function (req, res) {
 //     try {
