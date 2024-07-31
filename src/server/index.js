@@ -3,8 +3,12 @@ const server = express();
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import path from 'path';
-console.log(path.join('app','src', 'assets', 'views', 'landing'));
-import fs from 'fs'
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+console.log(__dirname);
 // import $$Usuarios from '../models/Usuarios.js';
 // import $$Ventas from '../models/Ventas.js';
 // import $$Productos from '../models/Productos.js';
