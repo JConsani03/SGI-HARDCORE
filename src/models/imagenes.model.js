@@ -16,21 +16,21 @@ function comprobarAdmin(adminID) {
 export default class $$Imagenes {
 
     static create(adminID, ArrayBuffer) {
-        console.log('-------------SERVER-------------');
+        console.log('-------------createImagen-------------');
         let buffer = Buffer.from(ArrayBuffer)
-        console.log(adminID, buffer);
+        console.log('------------', {adminID, ArrayBuffer});
         if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
         let res = db.prepare(`INSERT INTO Imagenes (data) VALUES(?)`).run(buffer);
-        console.log('-------------FIN/SERVER-------------');
+        console.log('-------------FIN/createImagen-------------');
         return { 'id': res.lastInsertRowid };
     }
 
     static update(adminID, idProducto, id){
-        console.log('-------------SERVER-------------');
+        console.log('-------------updateImagen-------------');
         console.log(adminID, idProducto, id);
         if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
         let res = db.prepare(`UPDATE Imagenes SET idProducto = ? WHERE id = ?`).run(idProducto, id);
-        console.log('-------------FIN/SERVER-------------');
+        console.log('-------------FIN/updateImagen-------------');
         return {'res': res.changes};
     }
 
