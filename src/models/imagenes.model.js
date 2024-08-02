@@ -17,10 +17,10 @@ export default class $$Imagenes {
 
     static create(adminID, ArrayBuffer) {
         console.log('-------------createImagen-------------');
-        // let buffer = Buffer.from(ArrayBuffer)
+        let buffer = Buffer.from(ArrayBuffer)
         console.log('------------', {adminID, ArrayBuffer});
         if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
-        // let res = db.prepare(`INSERT INTO Imagenes (data) VALUES(?)`).run(buffer);
+        let res = db.prepare(`INSERT INTO Imagenes (data) VALUES(?)`).run(buffer);
         console.log('-------------FIN/createImagen-------------');
         return { 'id': res.lastInsertRowid };
     }

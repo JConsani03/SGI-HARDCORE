@@ -16,13 +16,6 @@ const server = express();
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ? RUTAS
-server.use(imagenesRoutes);
-server.use(productosRoutes);
-server.use(usuariosRoutes);
-server.use(ventas_productosRoutes);
-server.use(ventasRoutes);
-
 // ? Middlewares
 server.use(bodyParser.raw({ type: 'application/octet-stream', limit: '500mb' }));
 server.use(express.json({ limit: '500mb' }));
@@ -42,6 +35,13 @@ server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboa
 server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'usuarios')));
 server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboard', 'subViews', 'vender')));
 server.use(express.static(path.join(__dirname, '..', 'assets', 'img')));
+
+// ? RUTAS
+server.use(imagenesRoutes);
+server.use(productosRoutes);
+server.use(usuariosRoutes);
+server.use(ventas_productosRoutes);
+server.use(ventasRoutes);
 
 server.get('/landing', function (req, res) {
     res.status(200).sendFile(path.join(__dirname, '..', 'assets', 'views', 'landing', 'index.html'));
