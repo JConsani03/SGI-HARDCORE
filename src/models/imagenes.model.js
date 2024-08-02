@@ -18,7 +18,7 @@ export default class $$Imagenes {
     static create(adminID, ArrayBuffer) {
         console.log('-------------SERVER-------------');
         let buffer = Buffer.from(ArrayBuffer)
-        console.log(buffer);
+        console.log(adminID, buffer);
         if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
         let res = db.prepare(`INSERT INTO Imagenes (data) VALUES(?)`).run(buffer);
         console.log('-------------FIN/SERVER-------------');
