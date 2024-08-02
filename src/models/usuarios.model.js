@@ -7,9 +7,8 @@ db.prepare(
     '(id INTEGER PRIMARY KEY AUTOINCREMENT, usuario TEXT UNIQUE, pass TEXT, type INTEGER)').run();
 
 try {
-
+    db.prepare('INSERT INTO Usuarios (usuario, pass, type) VALUES(?, ?, ?)').run('admin', 'admin', 1);
 } catch {
-    db.prepare('INSERT INTO Usuarios (usuario, pass, type) VALUES(?, ?, ?)').run('admin', 'admin', 1)
 }
 
 function comprobarAdmin(adminID) {
