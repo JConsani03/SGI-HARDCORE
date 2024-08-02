@@ -7,7 +7,7 @@ db.prepare(
     '(id INTEGER PRIMARY KEY AUTOINCREMENT, usuario TEXT UNIQUE, pass TEXT, type INTEGER)').run();
 
 try {
-    db.prepare('INSERT INTO Usuarios (id, usuario, pass, type) VALUES(?, ?, ?)').run(1,'admin', 'admin', 1);
+    db.prepare('INSERT INTO Usuarios (id, usuario, pass, type) VALUES(?, ?, ?, ?)').run(1,'admin', 'admin', 1);
 } catch {
 }
 
