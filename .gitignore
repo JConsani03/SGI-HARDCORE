@@ -1,1 +1,2 @@
-.db
+*.db
+*better-sqlite3/
