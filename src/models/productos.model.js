@@ -19,7 +19,6 @@ function comprobarAdmin(adminID) {
 export default class $$Productos {
 
     static create(adminID, nombre, descrip, stock, priceU, idImage) {
-        console.log(nombre.length);
         if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
         let id = db.prepare(`INSERT INTO Productos (nombre, descrip, stock, priceU, idImage) VALUES(?, ?, ?, ?, ?)`).run(nombre, descrip, stock, priceU, idImage);
         return { 'id': id.lastInsertRowid };

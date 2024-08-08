@@ -1,7 +1,7 @@
 // ? Módulos de terceros o estándar
 import express from 'express';
 import cors from 'cors';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 import url from 'url'
 import path from 'path';
 
@@ -15,9 +15,10 @@ import { ventasRoutes } from './routes/ventas.routes.js'
 const server = express();
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+console.log({import: import.meta, import_meta_url: import.meta.url, __filename, __dirname});
 
 // ? Middlewares
-server.use(bodyParser.raw({ type: 'application/octet-stream', limit: '500mb' }));
+// server.use(bodyParser.raw({ type: 'application/octet-stream', limit: '500mb' }));
 server.use(express.json({ limit: '500mb' }));
 server.use(cors());
 server.use(express.urlencoded({ extended: true }));
@@ -37,7 +38,7 @@ server.use(express.static(path.join(__dirname, '..', 'assets', 'views', 'dashboa
 server.use(express.static(path.join(__dirname, '..', 'assets', 'img')));
 
 // ? RUTAS
-server.use(imagenesRoutes);
+server.use('/images', imagenesRoutes);
 server.use(productosRoutes);
 server.use(usuariosRoutes);
 server.use(ventas_productosRoutes);

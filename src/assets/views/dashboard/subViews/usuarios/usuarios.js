@@ -33,7 +33,7 @@ window.fragmentNamespace = function () {
     // Las demás funciones del fragmento van aquí
     function eliminar() {
         if (selected) {
-            fetch(`https://hardcore.up.railway.app/deleteUsuario/1/${encodeURIComponent(idUsuario)}`)
+            fetch(`${SV_URL}/deleteUsuario/1/${encodeURIComponent(idUsuario)}`)
                 .then(res => res.json())
                 .then(res => {
                     alert(res.message);
@@ -61,7 +61,7 @@ window.fragmentNamespace = function () {
             document.getElementById('b_editar').disabled = false;
             document.getElementById('b_eliminar').disabled = false;
             selected = false;
-            fetch(`https://hardcore.up.railway.app/createUsuario/1
+            fetch(`${SV_URL}/createUsuario/1
                 /${document.getElementById('usuario').value}
                 /${document.getElementById('contrasenia').value}
                 /1`)
@@ -84,7 +84,7 @@ window.fragmentNamespace = function () {
         document.getElementById('b_nuevo').innerHTML = 'NUEVO';
         document.getElementById('b_editar').disabled = false;
         document.getElementById('b_eliminar').disabled = false;
-        fetch(`https://hardcore.up.railway.app/readUsuario/1/${encodeURIComponent(user)}`)
+        fetch(`${SV_URL}/readUsuario/1/${encodeURIComponent(user)}`)
             .then(res => res.json())
             .then(res => {
                 document.getElementById('usuario').value = res[0].usuario;
@@ -96,7 +96,7 @@ window.fragmentNamespace = function () {
 
     function llenarTabla(nombre) {
         document.getElementById('table_content').innerHTML = '';
-        fetch(`https://hardcore.up.railway.app/readUsuario/1/${encodeURIComponent(nombre)}`)
+        fetch(`${SV_URL}/readUsuario/1/${encodeURIComponent(nombre)}`)
             .then(res => res.json())
             .then(res => {
                 res.forEach(function (fila) {

@@ -15,35 +15,38 @@ function comprobarAdmin(adminID) {
 
 export default class $$Imagenes {
 
-    static create(adminID, ArrayBuffer) {
-        console.log('-------------createImagen-------------');
-        let buffer = Buffer.from(ArrayBuffer)
-        console.log('------------', {adminID, ArrayBuffer});
-        if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
+    static create(JSONImage) {
+
+        let buffer = Buffer.from(JSONImage.data, 'base64');
+        if (!comprobarAdmin(JSONImage.adminID)) throw new Error('No tienes permisos.');
         let res = db.prepare(`INSERT INTO Imagenes (data) VALUES(?)`).run(buffer);
-        console.log('-------------FIN/createImagen-------------');
         return { 'id': res.lastInsertRowid };
+
     }
 
-    static update(adminID, idProducto, id){
-        console.log('-------------updateImagen-------------');
-        console.log(adminID, idProducto, id);
-        if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
-        let res = db.prepare(`UPDATE Imagenes SET idProducto = ? WHERE id = ?`).run(idProducto, id);
-        console.log('-------------FIN/updateImagen-------------');
+    static update(JSONImage){
+
+        console.log(JSONImage);
+        
+        if (!comprobarAdmin(JSONImage.adminID)) throw new Error('No tienes permisos.');
+        let res = db.prepare(`UPDATE Imagenes SET idProducto = ? WHERE id = ?`).run(JSONImage.idProducto, JSONImage.id);
         return {'res': res.changes};
+
     }
 
     static read(id) {
-        console.log(id);
+
         let res = db.prepare(`SELECT * FROM Imagenes WHERE idProducto = ?`).get(id);
         return res.data;
+
     }
 
     static delete(adminID, id) {
+
         if (!comprobarAdmin(adminID)) throw new Error('No tienes permisos.');
         let res = db.prepare(`DELETE FROM Imagenes WHERE id = ?`).run(id);
         return res;
+
     }
 
 

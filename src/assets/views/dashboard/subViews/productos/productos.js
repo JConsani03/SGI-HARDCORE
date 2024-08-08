@@ -54,10 +54,20 @@ window.fragmentNamespace = function () {
         }
     }
 
+    function arrayBufferToBase64(buffer) {
+        let utf16 = '';
+        let bytes = new Uint8Array(buffer);
+        let len = bytes.byteLength;
+        for (let i = 0; i < len; i++) {
+          utf16 += String.fromCharCode(bytes[i]);
+        }
+        return window.btoa(utf16);
+      }
+
     // Las demás funciones del fragmento van aquí
     function eliminar() {
         if (selected) {
-            fetch(`https://hardcore.up.railway.app/deleteProducto/1/${encodeURIComponent(idProducto)}`)
+            fetch(`${SV_URL}/deleteProducto/1/${encodeURIComponent(idProducto)}`)
                 .then(res => res.json())
                 .then(res => {
                     alert(res.message);
@@ -87,20 +97,33 @@ window.fragmentNamespace = function () {
             document.getElementById('b_eliminar').disabled = false;
             document.getElementById('fileInput').value = '';
             console.log(img);
-            fetch('https://hardcore.up.railway.app/createImagen/1', {
+            fetch(`${SV_URL}/images`, {
                 method: 'post',
                 headers: {
-                    'Content-Type': 'application/octet-stream'
+                    'Content-Type': 'application/json'
                 },
-                body: img
+                body: JSON.stringify({
+                    "adminID": 1,
+                    "data": arrayBufferToBase64(img)
+                })
             })
                 .then(res => res.json())
                 .then(res => {
                     idImage = res.id;
-                    fetch(`https://hardcore.up.railway.app/createProducto/1/${encodeURIComponent(document.getElementById('nombre').value)}/${encodeURIComponent(document.getElementById('descrip').value)}/${encodeURIComponent(document.getElementById('stock').value)}/${encodeURIComponent(document.getElementById('precio').value)}/${encodeURIComponent(idImage)}`)
+                    fetch(`${SV_URL}/createProducto/1/${encodeURIComponent(document.getElementById('nombre').value)}/${encodeURIComponent(document.getElementById('descrip').value)}/${encodeURIComponent(document.getElementById('stock').value)}/${encodeURIComponent(document.getElementById('precio').value)}/${encodeURIComponent(idImage)}`)
                         .then(res => res.json())
                         .then(res => {
-                            fetch(`https://hardcore.up.railway.app/updateImagen/1/${encodeURIComponent(res.id)}/${encodeURIComponent(idImage)}`)
+                            fetch(`${SV_URL}/images`, {
+                                method: 'put',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    "adminID": 1,
+                                    "idProducto": res.id,
+                                    "id": idImage
+                                })
+                            });
                             llenarTabla(-1);
                             clearCampos();
                         });
@@ -123,7 +146,7 @@ window.fragmentNamespace = function () {
     }
 
     function obtenerImagen(id) {
-        fetch(`https://hardcore.up.railway.app/readImagen/${encodeURIComponent(id)}`)
+        fetch(`${SV_URL}/images/${encodeURIComponent(id)}`, {method: 'get'})
             .then(res => res.blob())
             .then(res => {
                 let reader = new FileReader();
@@ -140,7 +163,7 @@ window.fragmentNamespace = function () {
         document.getElementById('b_nuevo').innerHTML = 'NUEVO';
         document.getElementById('b_editar').disabled = false;
         document.getElementById('b_eliminar').disabled = false;
-        fetch(`https://hardcore.up.railway.app/getProducto/${encodeURIComponent(id)}`)
+        fetch(`${SV_URL}/getProducto/${encodeURIComponent(id)}`)
             .then(res => res.json())
             .then(res => {
                 obtenerImagen(res.id);
@@ -154,7 +177,7 @@ window.fragmentNamespace = function () {
 
     function llenarTabla(nombre) {
         document.getElementById('table_content').innerHTML = '';
-        fetch(`https://hardcore.up.railway.app/readProducto/${encodeURIComponent(nombre)}`)
+        fetch(`${SV_URL}/readProducto/${encodeURIComponent(nombre)}`)
             .then(res => res.json())
             .then(res => {
                 res.forEach(function (fila) {

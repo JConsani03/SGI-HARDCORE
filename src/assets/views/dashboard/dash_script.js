@@ -1,3 +1,5 @@
+// ? https://hadrcore.up.railway.app ó http://localhost:8080
+const SV_URL = "https://hadrcore.up.railway.app";
 const $content = document.getElementById("content");
 const $botones = document.getElementsByName("modulo");
 
@@ -10,7 +12,7 @@ function crearScript(nombre) {
     $content.appendChild(script);
 }
 
-fetch(`https://hardcore.up.railway.app/productos.html`)
+fetch(`${SV_URL}/productos.html`)
     .then(res => res.text())
     .then(res => { $content.innerHTML = res; crearScript('productos.js'); });
 
@@ -25,7 +27,7 @@ function setContent(btn) {
         delete window.fragmentNamespace;
     }
 
-    fetch(`https://hardcore.up.railway.app/${btn.target.id}.html`)
+    fetch(`${SV_URL}/${btn.target.id}.html`)
         .then(res => res.text())
         .then(res => {
             $content.innerHTML = res;

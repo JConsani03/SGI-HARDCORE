@@ -1,11 +1,13 @@
-let $usuario = document.getElementById("in_usuario");
-let $pass = document.getElementById("in_pass");
+// ? https://hadrcore.up.railway.app ó http://localhost:8080
+const SV_URL = "https://hadrcore.up.railway.app";
+const $usuario = document.getElementById("in_usuario");
+const $pass = document.getElementById("in_pass");
 history.replaceState(null, '', "/login");
 
 function ingresar() {
     let user = $usuario.value || 'e';
     let pass = $pass.value || 'e';
-    fetch(`https://hardcore.up.railway.app/loginUser/${encodeURIComponent(user)}/${encodeURIComponent(pass)}`)
+    fetch(`${SV_URL}/loginUser/${encodeURIComponent(user)}/${encodeURIComponent(pass)}`)
         .then((res) => {
             if (!res.ok) {
                 return res.json().then(error => alert(error.message));

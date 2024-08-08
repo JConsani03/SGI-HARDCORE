@@ -1,14 +1,32 @@
 import sqlite from 'better-sqlite3';
+import { createHash } from 'crypto';
 
 const db = new sqlite('./src/controller/database.db');
 
 db.prepare(
-    'CREATE TABLE IF NOT EXISTS Usuarios' +
-    '(id INTEGER PRIMARY KEY AUTOINCREMENT, usuario TEXT UNIQUE, pass TEXT, type INTEGER)').run();
+    `CREATE TABLE IF NOT EXISTS Usuarios(
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    usuario TEXT UNIQUE, 
+    pass TEXT, 
+    type INTEGER
+    )`
+).run();
 
-try {
-    db.prepare('INSERT INTO Usuarios (id, usuario, pass, type) VALUES(?, ?, ?, ?)').run(1,'admin', 'admin', 1);
-} catch {
+function hashDate(user, pass) {
+    const passHash = createHash('sha256');
+    const userHash = createHash('sha256');
+
+    const hashedUser = userHash.update(user.trim()).digest('hex');
+    const hashedPass = passHash.update(pass.trim()).digest('hex');
+
+    return {hashedUser, hashedPass};
+}
+
+try{
+    let aux = hashDate('admin', 'admin');
+    db.prepare(`INSERT INTO Usuarios (id, usuario, pass, type) VALUES(?, ?, ?, ?)`).run(1, aux.hashedUser, aux.hashedPass, 1);
+}catch{
+
 }
 
 function comprobarAdmin(adminID) {
@@ -25,7 +43,8 @@ export default class $$Usuarios {
         if (pass.trim().length < 6) throw new Error('La contraseña debe tener como mínimo 6 caracteres.');
 
         try {
-            db.prepare(`INSERT INTO Usuarios (usuario, pass, type) VALUES(?, ?, ?)`).run(user.trim(), pass, type);
+            const hashedData = hashDate(user, pass);
+            db.prepare(`INSERT INTO Usuarios (usuario, pass, type) VALUES(?, ?, ?)`).run(hashedData.hashedUser, hashedData.hashedPass, type);
         } catch (err) {
             let cadena = err.message.split(' ');
             console.log(cadena);
@@ -65,10 +84,11 @@ export default class $$Usuarios {
     }
 
     static login(user, pass) {
-        let json = db.prepare(`SELECT * FROM Usuarios WHERE usuario = ?`).get(user);
+        const hashedData = hashDate(user, pass);
+        let json = db.prepare(`SELECT * FROM Usuarios WHERE usuario = ?`).get(hashedData.hashedUser);
         if (json) {
 
-            if (json.pass == pass) {
+            if (json.pass == hashedData.hashedPass) {
                 return { 'message': 'OK' };
             } else {
                 throw new Error('El usuario o contraseña son incorrectos.');
