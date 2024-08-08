@@ -88,7 +88,7 @@ window.fragmentNamespace = function () {
     }
 
     function obtenerImagen(id) {
-        fetch(`${SV_URL}/readImagen/${encodeURIComponent(id)}`)
+        fetch(`${SV_URL}/images/${encodeURIComponent(id)}`)
             .then(res => res.blob())
             .then(res => {
                 let reader = new FileReader();
