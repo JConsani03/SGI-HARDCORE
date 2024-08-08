@@ -1,10 +1,13 @@
 // ? Módulos de terceros o estándar
 import { Router } from "express";
+import cors from 'cors';
 
 // ? Módulos propios
 import usuariosModel from '../../models/usuarios.model.js';
 
 const router = Router();
+
+router.use(cors());
 
 router.get('/loginUser/:user/:pass', function (req, res) {
     try {
