@@ -14,10 +14,11 @@ db.prepare(`
 `).run();
 
 function hashDate(user, pass) {
-    const hash = createHash('sha256');
+    const passHash = createHash('sha256');
+    const userHash = createHash('sha256');
 
-    const hashedUser = hash.update(user.trim()).digest('hex');
-    const hashedPass = hash.update(pass.trim()).digest('hex');
+    const hashedUser = userHash.update(user.trim()).digest('hex');
+    const hashedPass = passHash.update(pass.trim()).digest('hex');
 
     return { hashedUser, hashedPass };
 }

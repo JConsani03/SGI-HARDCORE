@@ -13,7 +13,7 @@ router.get('/loginUser/:user/:pass', function (req, res) {
         const USER = req.params.user;
         const PASS = req.params.pass;
 
-        Usuario.login(USER, PASS);
+        res.status(200).send(Usuario.login(USER, PASS));
 
         const token = jwt.sign({ PASS }, SECRET_KEY, { expiresIn: '1h' });
         res.cookie('user', token, {
