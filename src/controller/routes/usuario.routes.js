@@ -17,7 +17,7 @@ router.get('/loginUser/:user/:pass', function (req, res) {
 
         const token = jwt.sign({ PASS }, SECRET_KEY, { expiresIn: '1h' });
         res.cookie('user', token, {
-            httpOnly: true, // Evita que el cliente acceda a la cookie desde JavaScript
+            httpOnly: false, // Evita que el cliente acceda a la cookie desde JavaScript
             maxAge: 3600000, // 1 hora
         });
     } catch (error) {
