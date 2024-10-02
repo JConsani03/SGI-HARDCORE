@@ -1,18 +1,19 @@
 // ? Módulos de terceros o estándar
-import os from 'os';
+import os from 'node:os';
 
 // ? Módulos propios
-import server from './server.js'
+import app from './app.js';
+import { SV_PORT } from './config.js';
 
 const platform = os.platform(); 
 const type = os.type();
 const release = os.release(); 
 console.log({platform, type, release});
 
-server.use(function (req, res) {
+app.use(function (req, res) {
     res.status(404).send('Recurso no encontrado.');
 });
 
-server.listen(8080, function () {
+app.listen(SV_PORT, function () {
     console.log('Online!');
 }); 

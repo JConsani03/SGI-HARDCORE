@@ -59,10 +59,10 @@ window.fragmentNamespace = function () {
         let bytes = new Uint8Array(buffer);
         let len = bytes.byteLength;
         for (let i = 0; i < len; i++) {
-          utf16 += String.fromCharCode(bytes[i]);
+            utf16 += String.fromCharCode(bytes[i]);
         }
         return window.btoa(utf16);
-      }
+    }
 
     // Las demás funciones del fragmento van aquí
     function eliminar() {
@@ -84,14 +84,14 @@ window.fragmentNamespace = function () {
             document.getElementById('fileInput').value = '';
             img = null;
             clearCampos();
-            document.getElementById('b_nuevo').style.transform = 'scale(1.11)'
+            document.getElementById('b_nuevo').style.transform = 'scale(1.11)';
             document.getElementById('b_editar').disabled = true;
             document.getElementById('b_nuevo').innerHTML = 'AGREGAR';
             document.getElementById('b_eliminar').disabled = true;
         } else {
-            selected = false
+            selected = false;
             flag = !flag;
-            document.getElementById('b_nuevo').style.transform = 'scale(1)'
+            document.getElementById('b_nuevo').style.transform = 'scale(1)';
             document.getElementById('b_nuevo').innerHTML = 'NUEVO';
             document.getElementById('b_editar').disabled = false;
             document.getElementById('b_eliminar').disabled = false;
@@ -159,7 +159,7 @@ window.fragmentNamespace = function () {
 
     function llenarCampos(id) {
         flag = true;
-        document.getElementById('b_nuevo').style.transform = 'scale(1)'
+        document.getElementById('b_nuevo').style.transform = 'scale(1)';
         document.getElementById('b_nuevo').innerHTML = 'NUEVO';
         document.getElementById('b_editar').disabled = false;
         document.getElementById('b_eliminar').disabled = false;
