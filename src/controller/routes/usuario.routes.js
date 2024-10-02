@@ -13,13 +13,15 @@ router.get('/loginUser/:user/:pass', function (req, res) {
         const USER = req.params.user;
         const PASS = req.params.pass;
 
-        res.status(200).send(Usuario.login(USER, PASS));
+        const ok = Usuario.login(USER, PASS);
 
         const token = jwt.sign({ PASS }, SECRET_KEY, { expiresIn: '1h' });
         res.cookie('user', token, {
             httpOnly: false, // Evita que el cliente acceda a la cookie desde JavaScript
             maxAge: 3600000, // 1 hora
         });
+
+        res.send(ok);
     } catch (error) {
         res.status(400).send({ 'message': error.message });
     }
