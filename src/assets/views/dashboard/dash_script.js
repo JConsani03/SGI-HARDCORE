@@ -1,5 +1,5 @@
 // ? https://hardcore.up.railway.app ó http://localhost:8080
-const SV_URL = "http://localhost:8080";
+const SV_URL = "https://hardcore.up.railway.app";
 const $content = document.getElementById("content");
 const $botones = document.getElementsByName("modulo");
 
