@@ -9,8 +9,6 @@ import Usuario from '../../models/usuario.model.js';
 const router = Router();
 const SECRET_KEY = 'holacomoestasyomuybienytuahconchaleyobien38959193123812938194810948198349120';
 
-router.get('/verify', authenticateToken);
-
 router.get('/loginUser/:user/:pass', function (req, res) {
     try {
         const USER = req.params.user;
@@ -29,6 +27,8 @@ router.get('/loginUser/:user/:pass', function (req, res) {
         res.status(400).send({ 'message': error.message });
     }
 });
+
+router.get('/verify', authenticateToken);
 
 router.get('/createUsuario/:adminID/:user/:pass/:type', function (req, res) {
     try {
