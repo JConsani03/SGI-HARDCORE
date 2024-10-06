@@ -9,10 +9,18 @@ function ingresar() {
     let pass = $pass.value || 'e';
     fetch(`${SV_URL}/loginUser/${encodeURIComponent(user)}/${encodeURIComponent(pass)}`)
         .then((res) => {
-            if (!res.ok) {
-                return res.json().then(error => alert(error.message));
-            }
-            res.json().then((res) => console.log(res))
-            window.location.href = 'dashboard.html'
-        })
+            if (!res.ok) { return res.json().then(error => alert(error.message)); }
+            res.json().then((res) => console.log(res));
+            window.location.href = 'dashboard.html';
+        });
 }
+
+function verificarUsuario() {
+    fetch(`${SV_URL}/verify`)
+        .then((res) => { 
+            if (!res.ok) { return res.json().then(error => alert(error.message)); } 
+            window.location.href = 'dashboard.html';
+        });
+}
+
+verificarUsuario();

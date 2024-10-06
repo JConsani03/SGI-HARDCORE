@@ -3,10 +3,13 @@ import { Router } from "express";
 import jwt from 'jsonwebtoken';
 
 // ? Módulos propios
+import {authenticateToken} from '../../validaciones.js';
 import Usuario from '../../models/usuario.model.js';
 
 const router = Router();
 const SECRET_KEY = 'holacomoestasyomuybienytuahconchaleyobien38959193123812938194810948198349120';
+
+router.get('/verify', authenticateToken);
 
 router.get('/loginUser/:user/:pass', function (req, res) {
     try {
@@ -17,7 +20,7 @@ router.get('/loginUser/:user/:pass', function (req, res) {
 
         const token = jwt.sign({ PASS }, SECRET_KEY, { expiresIn: '1h' });
         res.cookie('user', token, {
-            httpOnly: false, // Evita que el cliente acceda a la cookie desde JavaScript
+            httpOnly: true, // Evita que el cliente acceda a la cookie desde JavaScript
             maxAge: 3600000, // 1 hora
         });
 
