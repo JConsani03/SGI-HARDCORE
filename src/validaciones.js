@@ -4,11 +4,17 @@ const SECRET_KEY = 'holacomoestasyomuybienytuahconchaleyobien3895919312381293819
 
 export function authenticateToken(req, res, next) {
     const token = req.cookies.user;
-
-    if (!token) return res.sendStatus(401);
+    if (!token) {
+        req.user = false;
+        next();
+        return;
+    }
 
     jwt.verify(token, SECRET_KEY, (err, user) => {
-        if (err) return res.sendStatus(403);
+        if (err) {
+            throw new Error('Error Inesperado');
+        }
+        req.user = true;
         next();
     });
 };

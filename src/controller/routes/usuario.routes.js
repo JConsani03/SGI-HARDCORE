@@ -29,7 +29,15 @@ router.get('/loginUser/:user/:pass', function (req, res) {
 });
 
 router.get('/verify', authenticateToken, function (req, res){
-    res.sendStatus(200);
+    try {
+        if(!req.user) {
+            res.sendStatus(400);
+            return;
+        }
+        res.sendStatus(200);
+    } catch (error) {
+        res.status(400).send({ 'message': error.message });
+    }
 });
 
 router.get('/createUsuario/:adminID/:user/:pass/:type', function (req, res) {
