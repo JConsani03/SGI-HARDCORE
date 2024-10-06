@@ -1,5 +1,5 @@
 // ? https://hardcore.up.railway.app ó http://localhost:8080
-const SV_URL = "https://hardcore.up.railway.app";
+const SV_URL = "hardcore.up.railway.app";
 const $usuario = document.getElementById("in_usuario");
 const $pass = document.getElementById("in_pass");
 history.replaceState(null, '', "/login");

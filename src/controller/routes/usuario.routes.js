@@ -28,7 +28,9 @@ router.get('/loginUser/:user/:pass', function (req, res) {
     }
 });
 
-router.get('/verify', authenticateToken);
+router.get('/verify', authenticateToken, function (req, res){
+    res.sendStatus(200);
+});
 
 router.get('/createUsuario/:adminID/:user/:pass/:type', function (req, res) {
     try {
